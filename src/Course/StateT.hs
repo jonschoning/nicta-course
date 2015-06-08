@@ -332,7 +332,7 @@ distinctG ::
   -> Logger Chars (Optional (List a))
 distinctG = runOptionalT . flip evalT S.empty . filtering go
   where go a = StateT $ \s -> OptionalT $
-          if (a > 100) then 
+          if a > 100 then 
             log1 ("aborting > 100: " ++ show' a) Empty
           else
             (if even a then log1 ("even number: " ++ show' a) else pure) $ 
