@@ -1,5 +1,4 @@
-inotifywait -m -r -q -e modify --format '%w/%f' src/ | while read FILE
-do
-  doctest -isrc -fno-warn-type-defaults "$FILE"
+while inotifywait -m -q -e modify src/Course/JsonParser.hs; do
+  ./test.sh
 done
 

@@ -306,6 +306,11 @@ is ::
 is a =
   satisfy (== a)
 
+isNot ::
+  Char -> Parser Char
+isNot a =
+  satisfy (/= a)
+
 -- | Return a parser that produces a character between '0' and '9' but fails if
 --
 --   * The input is empty.
